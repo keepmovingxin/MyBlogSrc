@@ -62,15 +62,6 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-# plugins:
-# - hexo-generator-feed
-# - hexo-generator-sitemap
-# - hexo-generator-tag
-# - hexo-generator-category
-# - hexo-renderer-less
-# - hexo-renderer-ejs
-# - hexo-generator-index
-
 feed:
   type: atom
   path: atom.xml
