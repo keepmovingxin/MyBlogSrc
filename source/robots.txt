@@ -4,4 +4,3 @@ Disallow: /css
 Disallow: /fancybox
 Disallow: /js
 Sitemap: http://blog.keepmovingxin.com/sitemap.xml
-Sitemap: http://blog.keepmovingxin.com/baidusitemap.xml
