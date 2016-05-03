@@ -302,6 +302,14 @@ $article-share-link
     background: color-tencent
     text-shadow: 0 1px darken(color-tencent, 20%)
 
+.article-share-wechat
+  @extend $article-share-link
+  &:before
+    content: "\f1d7"
+  &:hover
+    background: color-wechat
+    text-shadow: 0 1px darken(color-wechat, 20%)
+
 .article-gallery
   background: #000
   position: relative
