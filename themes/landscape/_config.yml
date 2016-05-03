@@ -38,5 +38,8 @@ google_plus:
 fb_admins:
 fb_app_id:
 
+# Scroll to top
+go_top: true
+
 # baidu 统计
 baidu_tongji: true
