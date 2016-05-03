@@ -46,8 +46,10 @@ i=1; total=0;while((i<=10))do    ((total+=i, i++))    echo $total,$idone
 
 ```
 case $num in1) echo "January";;     			#双分号结束2) echo "Feburary";;5) echo "may"          				#每个case可以有多条命令          echo "sdfd"   echo "sdf";;       				#但最后一条命令一定是双分号结束*) echo "not correct input";;   	#*）是其他值、default的意思esac
-```#### 1.7 while read line```
-while read line; do something ; done```#### 1.8	参数处理a)	"$*"将所有的参数解释成一个字符串，而"$@"是一个参数数组。b)	Shell内建函数getopts “:a:bc” opt	主要变量：	$OPTIND	:	存储所处理的选项在参数列表中的位置	$OPTARG	：	存储相应选项所带的参数例子：
+```#### 1.7 while read line
+```
+while read line; do something ; done```#### 1.8	参数处理a)	"$*"将所有的参数解释成一个字符串，而"$@"是一个参数数组。
+b)	Shell内建函数getopts “:a:bc” opt	主要变量：	$OPTIND	:	存储所处理的选项在参数列表中的位置	$OPTARG	：	存储相应选项所带的参数例子：
 ```
 while getopts ":a:b:cef" optdo    case $opt in        a)echo "the $OPTIND has arg:$OPTARG";;#$OPTIND=3        b)echo "the b has arg:$OPTARG";;        c | e | f)echo "the $opt has no arg";;        \?)echo "the $opt is invalid param";;    esacdone```c)	shift n   将位置命令左移n个#### 1.9	条件判断条件判断应该放进方括号里，且方括号两边都应该留有空格。 [  ]a)	字符串判断字符串比较时，最好用双中括号，因为有时候采用单中括号会产生错误，所以最好避开它们。[[ $str1 = $str2 ]]	=			当两个串有相同内容、长度时为真	!=		　　当串str1和str2不等时为真	-n			当串的长度大于0时为真(串非空)	-z			当串的长度为0时为真(空串)
 b)	数值判断	-eq     两数相等为真 	-ne     两数不等为真 	-gt     int1大于int2为真 	-ge     int1大于等于int2为真 	-lt     int1小于int2为真 	-le     int1小于等于int2为真
