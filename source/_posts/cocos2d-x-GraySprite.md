@@ -2,7 +2,7 @@
 title: Cocos2d-x使用CCGLProgram和Shader文件实现精灵置灰
 date: 2016-04-27 17:47:46
 tags: Cocos2d-x
-categories: 技术
+categories: 游戏开发
 toc: true
 ---
 
