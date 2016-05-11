@@ -9,7 +9,28 @@ toc: true
 记录一下Cocos2d-x中动态纹理CCRenderTexture的各种应用，实现截屏、阴影等等
 
 ### 截取当前屏幕图片
+```
+--[[
+    @des:截取当前屏幕图片
+    @ret:截取的图片路径
+--]]
+function getScreenshots()
+    local size = CCDirector:sharedDirector():getWinSize()
+    local in_texture = CCRenderTexture:create(size.width, size.height,kCCTexture2DPixelFormat_RGBA8888)
+    in_texture:getSprite():setAnchorPoint( ccp(0.5,0.5) )
+    in_texture:setPosition( ccp(size.width/2, size.height/2) )
+    in_texture:setAnchorPoint( ccp(0.5,0.5) )
 
+    local runingScene = CCDirector:sharedDirector():getRunningScene()
+    in_texture:begin()
+    runingScene:visit()
+    in_texture:endToLua()
+
+    local picPath = CCFileUtils:sharedFileUtils():getWritablePath() .. "shareTempScreenshots.jpg"
+    print("截屏图片:",in_texture:saveToFile(picPath))
+    return picPath
+end
+```
 
 <!--more-->
 
