@@ -64,7 +64,9 @@ function getShadowSprite( pSprite )
     return shadowSprite
 end
 ```
+
 ### 绘制动态精灵
+　　注意，我们这里不是调用的`CCRenderTexture:begin`方法，而是调用另外一个较方便的方法`beginWithClear:g:b:a:`，这个方法可以用给定的颜色来清除纹理的背景，相当于设置画布的颜色。
 
 ```
 -(CCSprite *)spriteWithColor:(ccColor4F)bgColor textureSize:(float)textureSize {
@@ -85,7 +87,55 @@ CCRenderTexture *rt = [CCRenderTexture renderTextureWithWidth:textureSize height
 return [CCSprite spriteWithTexture:rt.sprite.texture];
 
 }
+
+- (ccColor4F)randomBrightColor {
+ 
+    while (true) {
+        float requiredBrightness = 192;
+        ccColor4B randomColor = 
+            ccc4(arc4random() % 255,
+                 arc4random() % 255, 
+                 arc4random() % 255, 
+                 255);
+        if (randomColor.r > requiredBrightness || 
+            randomColor.g > requiredBrightness ||
+            randomColor.b > requiredBrightness) {
+            return ccc4FFromccc4B(randomColor);
+        }        
+    }
+ 
+}
+ 
+- (void)genBackground {
+ 
+    [_background removeFromParentAndCleanup:YES];
+ 
+    ccColor4F bgColor = [self randomBrightColor];
+    _background = [self spriteWithColor:bgColor textureWidth:IS_IPHONE_5 ? 1024:512 textureHeight:512];
+ 
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    _background.position = ccp(winSize.width/2, winSize.height/2);        
+    [self addChild:_background z:-1];
+ 
+}
+ 
+- (void) onEnter {
+    [super onEnter];
+    [self genBackground];
+    [self setTouchEnabled:YES];
+}
+ 
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self genBackground];
+}
 ```
+　　`randomBrightColor`方法是一个辅助方法，用来创建一种随机颜色。注意，这里使用ccc4B（因此，我们能够在0-255的范围内指定R/G/B/A值），同时确保至少有一个颜色分量是大于192的，这样的话，我们就不会得到较暗的颜色。
+
+　　然后，`genBackground`调用我们之前写的`spriteWithColor`方法，同时把它加屏幕中央。
+
+　　至于`init`函数，它调用`genBackground`方法，同时激活`touches`事件，这样的话，你就可以通过点击屏幕来获得另外的随机背景了。
+
+　　编译并运行，这样你每一次点击屏幕，你都可以得到一张不同的单色背景图片啦！
 
 ### 参考链接：
 
