@@ -134,5 +134,7 @@ return [CCSprite spriteWithTexture:rt.sprite.texture];
 　　编译并运行，这样你每一次点击屏幕，你都可以得到一张不同的单色背景图片啦！
 
 ### 参考链接
-[(译)如何使用CCRenderTexture来创建动态纹理](http://www.cnblogs.com/andyque/archive/2011/07/01/2095479.html)
 [How To Create Dynamic Textures with CCRenderTexture in Cocos2D 2.X](https://www.raywenderlich.com/33266/how-to-create-dynamic-textures-with-ccrendertexture-in-cocos2d-2-x)
+[(译)如何使用CCRenderTexture来创建动态纹理](http://www.cnblogs.com/andyque/archive/2011/07/01/2095479.html)
+
+
