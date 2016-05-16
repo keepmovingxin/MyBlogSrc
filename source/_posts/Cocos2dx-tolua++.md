@@ -1,7 +1,8 @@
 ---
-title: [译] tolua(accessing C/C++ code from Lua)参考手册
+title: (译)tolua参考手册--accessing C/C++ code from Lua
 date: 2016-05-14 22:09:28
-tags: Cocos2d-x,Lua,tolua
+copyright: false
+tag: [Cocos2dx, Lua, tolua]
 categories: 游戏开发
 toc: true
 ---
