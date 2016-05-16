@@ -7,7 +7,6 @@ toc: true
 ---
 
 记录一下Cocos2d-x中动态纹理`CCRenderTexture`的各种应用，实现截屏、阴影等等
-
 使用`CCRenderTexture`需要做以下5步:
 
 1. 创建一个新的`CCRenderTexture`. 这里，你可以指定将要创建的纹理的宽度和高度。
@@ -130,15 +129,10 @@ return [CCSprite spriteWithTexture:rt.sprite.texture];
 }
 ```
 　　`randomBrightColor`方法是一个辅助方法，用来创建一种随机颜色。注意，这里使用ccc4B（因此，我们能够在0-255的范围内指定R/G/B/A值），同时确保至少有一个颜色分量是大于192的，这样的话，我们就不会得到较暗的颜色。
-
 　　然后，`genBackground`调用我们之前写的`spriteWithColor`方法，同时把它加屏幕中央。
-
 　　至于`init`函数，它调用`genBackground`方法，同时激活`touches`事件，这样的话，你就可以通过点击屏幕来获得另外的随机背景了。
-
 　　编译并运行，这样你每一次点击屏幕，你都可以得到一张不同的单色背景图片啦！
 
-### 参考链接：
-
+### 参考链接
 [(译)如何使用CCRenderTexture来创建动态纹理](http://www.cnblogs.com/andyque/archive/2011/07/01/2095479.html)
-
 [How To Create Dynamic Textures with CCRenderTexture in Cocos2D 2.X](https://www.raywenderlich.com/33266/how-to-create-dynamic-textures-with-ccrendertexture-in-cocos2d-2-x)
