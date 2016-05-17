@@ -200,5 +200,61 @@ MD5全称是报文摘要算法（Message-Digest Algorithm 5），此算法对任
 合并： `cat newfile_prefix* > newfile`
 
 ### alias 别名
-`alias myssh=’sh filename.sh’`### 未完待续...
+`alias myssh=’sh filename.sh’`
+
+### chmod 权限
+使用chmod命令设置文件权限。
+`chmod a+x file`
+
+ 	u ： 指定用户权限
+ 	g ： 指定用户组权限
+ 	o ： 指定其他用户权限
+ 	a ： 指定所有类别
+ 	+ ： 增加权限
+ 	- ： 删除权限
+ 	r ： 可读
+ 	w ： 可写
+ 	x ： 可执行，对目录文件来说表示可访问目录中的文件和子目录
+
+### vim 文本编辑工具
+`vimdiff` 文本差异对比
+`vimdiff  FILE_LEFT  FILE_RIGHT`
+常用命令：
+
+ 	Ctrl-w K 把当前窗口移到最上边
+ 	Ctrl-w H 把当前窗口移到最左边
+ 	Ctrl-w J 把当前窗口移到最下边
+ 	Ctrl-w L 把当前窗口移到最右边
+ 	Ctrl-w,w  在两个文件之间来回跳转
+ 	]c   跳转到下一差异点
+ 	[c   跳转到上一差异点，可在前面加上数字，表示跳转多少个差异
+ 	dp(diff put) 把一个差异点中当前文件的内容复制到另一个文件中
+ 	do(diff get) 另一个文件的内容复制到当前行中
+ 	:diffupdate 手工来刷新比较结果
+ 	zo(folding open) 展开被折叠的相同的文本行
+ 	zc(folding close) 重新折叠
+
+### paste
+用paste命令实现按列拼接。
+`$ paste file1 file2 file3...`
+参数：
+`-d：指定定界符`
+
+### 列出目录
+以下是几种方法列出当前路径下的目录。
+
+ 	ls –d */
+ 	ls –F | grep "/$"
+ 	ls –l | grep "^d"
+ 	find . –type d –maxdepth 1 –print
+
+
+### jps
+显示当前系统的java进程情况，及其id号。我们可以通过它来查看我们到底启动了几个java进程（因为每一个java程序都会独占一个java虚拟机实例），和他们的进程号（为下面几个程序做准备），并可通过opt来查看这些进程的详细启动参数。
+主要参数：
+
+ 	-q 只显示pid，不显示class名称,jar文件名和传递给main 方法的参数
+ 	-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null
+ 	-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名
+ 	-v 输出传递给JVM的参数### 未完待续...
 
