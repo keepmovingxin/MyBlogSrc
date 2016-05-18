@@ -75,3 +75,4 @@ eg：$ cat test.txt123$ out=$(cat test.txt)$ echo $out1 2 3			#shell将(c
 ### 7.临时文件或目录在shell脚本中经常要保存临时的数据，如果使用认为创建临时文件用户保存临时数据，则有可能出现重名的情况，导致覆盖原来的数据。mktemp prefile.xxx	创建以prefile开头的随机文件文件，并返回文件名，指定前缀时必须包含至少3个xxx。主要参数：
 ```
 -d	：	创建一个目录，dirname=`mktemp -d`-u	:	仅生成随机文件名，但不创建实际的文件或目录，tmpfile=`mktemp -u````
+
