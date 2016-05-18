@@ -58,3 +58,4 @@ pngquant 可以愉快的玩耍啦！
 压缩Downloads目录下所有的png，并替换当前图片
 
 `find /Users/mac/Downloads/ -name "*.png" | while read line; do pngquant --ext .png --force $line; done`
+
