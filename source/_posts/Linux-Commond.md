@@ -242,5 +242,34 @@ MD5全称是报文摘要算法（Message-Digest Algorithm 5），此算法对任
  	-q 只显示pid，不显示class名称,jar文件名和传递给main 方法的参数
  	-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null
  	-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名
- 	-v 输出传递给JVM的参数### 未完待续...
+ 	-v 输出传递给JVM的参数### xargs 参数传递
+`xargs [-0opt] [-E eofstr] [-I replstr [-R replacements]] [-J replstr] [-L number] [-n number [-x]] [-P maxprocs] [-s size] [utility [argument ...]]`
+给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。
+最经典应用模式：  `somecommand | xargs -item  command`  
+不带`command`，默认的使用`echo`输出
+
+用途：
+1.构造参数列表并运行命令，即将接收的参数传递给后面的`command`命令执行
+2.将多行输入转换为单行（特殊功效）
+
+优点：
+1.将输入参数整理后，去除`<newline>`换行符，以一个列表形式处理
+2.避免参数过长引发的问题，使用`xargs -n` 参数适当控制，对于经常产生大量输出的命令如`find`、`locate`和`grep`来说非常有用
+
+`-item` 代表选项:
+
+ 	-0      当sdtin含有特殊字元时候，将其当成一般字符，想/'空格等
+ 	-a file 从文件中读入作为sdtin
+ 	-e flag 注意有的时候可能会是-E，flag必须是一个以空格分隔的标志，当xargs分析到含有flag这个标志的时候就停止。
+ 	-E EOF  指定输入结束符
+ 	-n num  后面加次数，表示命令在执行的时候一次用的argument的个数，默认是用所有的。
+ 	-p      操作具有可交互性，每次执行comand都交互式提示用户选择，当每次执行一个argument的时候询问一次用户
+ 	-t      表示先打印命令，然后再执行。
+ 	-i      或者是-I，这得看linux支持了，将xargs的每项名称，一般是一行一行赋值给{}，可以用{}代替。
+ 	-r      no-run-if-empty 如果没有要处理的参数传递给xargs，xargs 默认是带 空参数运行一次，如果你希望无参数时，停止 xargs，直接退出，使用 -r 选项即可，其可以防止xargs 后面命令带空参数运行报错。
+ 	-s      num xargs后面那个命令的最大命令行字符数(含空格) 
+ 	-L      从标准输入一次读取num行送给Command命令 ，-l和-L功能一样
+ 	-d delim 分隔符，默认的xargs分隔符是回车，argument的分隔符是空格，这里修改的是xargs的分隔符
+ 	-x      exit的意思，如果有任何 Command 行大于 -s Size 标志指定的字节数，停止运行 xargs 命令，-L -I -n 默认打开-x参数，主要是配合-s使用
+ 	-P      修改最大的进程数，默认是1，为0时候为as many as it can.### 未完待续...
 
