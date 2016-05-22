@@ -209,82 +209,71 @@ tolua绑定这样的声明Lua全局变量。因此，在Lua中，我们自然地
 double v[10]; 
 ```
 ### 绑定函数 (Binding functions)
-Functions are also specified as conventional C/C++ declarations:
+函数也指传统C/C++声明:
 
 ```
 type funcname (type1 par1[, type2 par2[,...typeN parN]]);
 ```
-The returned type can be void, meaning no value is returned. A function can also have no parameter. In that case, void may be specified in the place of the list of parameters. The parameter types must follow the rules already posted. tolua creates a Lua function binding the C/C++ function. When calling a function from Lua, the parameter types must match the corresponding C/C++ types, otherwise, tolua generates an error and reports which parameter is wrongly specified. If a parameter name is omitted, tolua names it automatically, but its type should be a basic type or user type previously used.
+返回类型可以为空(void)，这意味着没有返回值。一个函数也可以没有参数。在这种情况下，void可能的列表中指定的参数。参数类型必须遵守已经发布的规则。tolua会创建一个Lua函数绑定C/C++函数。从Lua调用一个函数时，参数类型必须匹配相应的C/C++类型，否则，tolua会生成一个错误报告指定的参数是错误的。如果省略参数名称，tolua会自动命名，但类型应该是基本类型(basic type)或之前使用过的用户类型(user type)。
 #### Arrays (数组)
-
-tolua also deals with function or method parameters that represent arrays of values. The nice thing about arrays is that the corresponding Lua tables have their values updated if the C/C++ function changes the array contents.
-The arrays must be pre dimensioned. For instance:
-
+tolua也处理函数或方法参数表示数组的值。阵列的优点是，它们的值更新相应的Lua表如果C/C++函数改变数组的内容。
+数组必须指定大小。例如:
 ```
 void func (double a[3]);
 ```
-is a valid function declaration for tolua and calling this function from Lua would be done by, for instance:
+是一个有效的函数声明为tolua和从Lua不调用这个函数，例如:
 
 ```
 p = {1.0,1.5,8.6} 
 func (p)
 ```
-The array dimension need not be a constant expression; the dimension can also be specified by any expression that can be evaluated in run time. For instance:
-
+数组维数不需要一个常数表达式，指定的大小也可以由任何表达式，可以在运行时进行。例如:
 ```
 void func (int n, int m, double image[n*m]);
 ```
-is also valid since the expression `n*m` is valid in the binding function scope. However, be aware that tolua uses dynamic allocation for binding this function, what can degrade the performance.
+也有效的自表达式`n * m`绑定函数范围是有效的。然而，请注意，tolua使用动态分配绑定这个函数，能降低性能。
 
-Despite the dimension specification, it is important to know that all arrays passed to the actual C/C++ function are in the local scope of the binding function. So, if the C/C++ function being called needs to hold the array pointer for later use, the binding code will not work properly.
-
+尽管大小规范，重要的是要知道所有数组传递给实际的C/C++函数在本地绑定函数的范围。所以，如果C/C++函数被称为需要保存数组指针以备后用，绑定的代码将无法正常工作。
 #### Overloaded functions (重载函数)
-
-Overloaded functions are accepted. Remember that the distinction between two functions with the same name is made based on the parameter types that are mapped to Lua. So, although
-
+函数重载是支持的。记住名称相同的两个函数之间的区别是基于映射到Lua的参数类型。所以，尽管
 ```
 void func (int a); 
 void func (double a);
 ```
-represent two different functions in C++, they are the same function for tolua, because both int and double are mapped to the same Lua type: number.
+代表两个不同的函数在C++中，他们是tolua相同的函数，因为int和double映射到相同的Lua类型:数字。
 
-Another tricky situation occurs when expecting pointers. Suppose:
-
+另一个棘手的情况发生在导出指针。假设:
 ```
 void func (char* s);
 void func (void* p);
 void func (Object1* ptr);
 void func (Object2* prt);
 ```
-Although these four functions represent different functions in C++, a Lua statement like:
-
+虽然这四个函数代表不同的函数在C++中,Lua声明:
 ```
 func(nil)
 ```
-matches all of them.
+匹配所有的函数。
 
-It is important to know that tolua decides which function will be called in run-time, trying to match each provided function. tolua first tries to call the last specified function; if it fails, tolua then tries the previous one. This process is repeated until one function matches the calling code or the first function is reached. For that reason, the mismatching error message, when it occurs, is based on the first function specification. When performance is important, we can specify the most used function as the last one, because it will be tried first.
+重要的是要知道tolua决定函数将调用在运行时，试图匹配每个提供的函数。tolua首先试图调用指定的函数;如果失败了，tolua然后试之前一个。重复这个过程，直到一个函数调用代码匹配或第一个函数。出于这个原因，失配误差信息，当它发生时，是基于第一个函数规范。当然性能是很重要的，我们可以指定最常用函数作为最后一个，因为它将放在第一位。
 
-tolua allows the use of overloaded functions in C, see [Renaming](http://webserver2.tecgraf.puc-rio.br/~celes/tolua/tolua-3.2.html#renaming) for details.
+tolua允许使用重载函数在C语言中，查看详细[Renaming](http://webserver2.tecgraf.puc-rio.br/~celes/tolua/tolua-3.2.html#renaming)
 
 #### Default parameter values (默认参数值)
-
-The last function parameters can have associated default values. In that case, if the function is called with fewer parameters, the default values are assumed. The format to specify the default values is the same as the one used in C++ code:
-
+最后一个函数参数可以有相关联的默认值。在这种情况下，如果用更少的参数，函数被调用的默认值。格式指定默认值是一样的一个用于C++代码:
 ```
 type funcname (..., typeN-1 parN-1 [= valueN-1], typeN parN [= valueN]);
 ```
-toLua implements this feature without using any C++ mechanism; so, it can be used also to bind C functions.
+toLua实现这个功能没有使用任何C++机制;因此，它也可以使用绑定C函数。
 
-We can also specify default values for the elements of an array (there is no way to specify a default value for the array itself, though). For instance:
+我们也可以指定数组的元素的默认值(没有办法为数组本身，指定一个默认值)。例如:
 
 ```
 void func (int a[5]=0);
 ```
-sets the default element values to zero, thus the function can be called from Lua with an uninitialized table.
+设置默认元素值为零，因此，从Lua函数可以调用未初始化表。
 
-For Lua object types (lua_Object), tolua defines a constant that can be used to specify nil as default value:
-
+Lua对象类型(lua_Object)，tolua定义一个常数，可用于指定空值作为默认值:
 ```
 void func (lua_Object lo = TOLUA_NIL);
 ```
