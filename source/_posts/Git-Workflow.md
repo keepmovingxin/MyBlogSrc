@@ -329,6 +329,7 @@ $ git help add  # 比如 add 命令
 ### 后续
 另外，这里只是以程序员的场景来简单介绍 Git 使用，对于系统管理员，可能有一部分职责是作为 Git 版本仓库管理员，日常也会遇到的各种场景吧，后续也会简单介绍。
 ### 参考
+- 原文：[http://pm.readthedocs.io/vcs/git/usage.html](http://pm.readthedocs.io/vcs/git/usage.html)
 - [http://git-scm.com/book/zh](http://git-scm.com/book/zh)
 - [http://source.android.com/source/developing.html](http://source.android.com/source/developing.html)
 - [http://www.oschina.net/translate/a-successful-git-branching-model](http://www.oschina.net/translate/a-successful-git-branching-model)

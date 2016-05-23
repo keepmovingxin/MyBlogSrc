@@ -255,5 +255,6 @@ svn upgrade
 ### 后续
 另外，这里只是以程序员的场景来简单介绍SVN使用，对于系统管理员，可能有一部分职责是作为SVN版本仓库管理员，日常也会遇到的各种场景吧，后续也会简单介绍。
 ### 参考
+- 原文：[http://pm.readthedocs.io/vcs/svn/usage.html](http://pm.readthedocs.io/vcs/svn/usage.html)
 - [http://www.subversion.org.cn/svnbook/1.4/](http://www.subversion.org.cn/svnbook/1.4/)
 
