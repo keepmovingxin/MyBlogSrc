@@ -190,12 +190,12 @@ svn delete (del, remove, rm) https://scms.ship.it/svn/norther/branches/feature1
 ```
 svn copy (cp) https://scms.ship.it/svn/norther/trunk https://scms.ship.it/branches/1.0.x
 ```
-### 打标签
+#### 打标签
 复制最新的发布分支为标签：
 ```
 svn copy (cp) https://scms.ship.it/svn/norther/branches/1.0.x https://scms.ship.it/svn/norther/tags/1.0.0
 ```
-### 正式发布
+#### 正式发布
 发布又是一个比较复杂的主题，比如：能快速发布、快速回滚（包括数据回滚）、灰度发布等等，在 构建发布工具 中会详细进行介绍，这里就简单罗列下。
 
 情况1：完整包。导出代码，然后执行打包命令，进行完整安装：
