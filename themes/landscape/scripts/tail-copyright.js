@@ -1,4 +1,4 @@
-// Add a tail to every post from tail.md
+// Add a copyright to every post from copyright.md
 // Great for adding copyright info
 
 var fs = require('fs');
