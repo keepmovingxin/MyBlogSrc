@@ -5,6 +5,7 @@ copyright: false
 tags: SVN
 categories: 工具
 toc: true
+qrcode: true
 ---
 
 SVN有不少命令，其实常用的也就那么几个，可以结合下实际的使用场景，来说明下SVN的命令用法。

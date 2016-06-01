@@ -5,6 +5,7 @@ copyright: false
 tags: Lua
 categories: 游戏开发
 toc: true
+qrcode: true
 ---
 
 最近项目查了一个问题，最后发现和`_G[moduleName]`这个置为`nil`有关系，找了点资料看看里面的坑还是蛮深的，所以记录一下。

@@ -5,6 +5,7 @@ copyright: false
 tags: Git
 categories: 工具
 toc: true
+qrcode: true
 ---
 
 Git 相比 Subversion，无论概念上还是使用上，复杂度其实是高出一个等级的。为什么这么说？分别看下 `git help -a` 和 `svn help` 命令清单的对比，单按这个来看，就如果要掌握所有命令的用法，Git 的学习曲线绝对是比 Subversion 高的。尽管如此，但还是有越来越多项目开始用 Git 来做源码管理了。

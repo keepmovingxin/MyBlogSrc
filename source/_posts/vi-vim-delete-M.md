@@ -5,6 +5,7 @@ copyright: false
 date: 2016-04-29 13:39:31
 tags: Vim
 categories: 工具
+qrcode: true
 ---
 * 处理项目xml配置时vim打开经常会碰到中文显示不正常的现象，也就是传说中的乱码，搜索找到一个解决办法，记录一下，但是gbk编码的正常了，utf8的又不对了，于是稍微改了一点。
 
@@ -47,3 +48,4 @@ fileencodings中utf-8要在前面
 注: ^M 可以用Sublime Text编辑器查看
 
 一些linux版本有 dos2unix 程序，可以用来祛除^M
+

@@ -4,6 +4,7 @@ date: 2016-04-28 16:02:52
 tags: Linux
 categories: 工具
 toc: true
+qrcode: true
 ---
 
 ### 同步时间

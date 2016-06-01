@@ -4,6 +4,7 @@ date: 2016-05-02 16:50:52
 tags: shell
 categories: 工具
 toc: true
+qrcode: true
 ---
 
 ### 1.Shell脚本

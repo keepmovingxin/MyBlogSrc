@@ -4,11 +4,13 @@ date: 2016-04-27 17:47:46
 tags: Cocos2d-x
 categories: 游戏开发
 toc: true
+qrcode: true
 ---
 
-#### 1. 实现方法：`CCGraySprite` 继承自 `CCSprite` 覆盖`initWithTexture`和`draw`方法实现置灰。
+#### 1. 实现方法
+`CCGraySprite` 继承自 `CCSprite` 覆盖`initWithTexture`和`draw`方法实现置灰。
 
-##### 方法和属性声明：
+##### 方法和属性声明
 ```
 class CCGraySprite : public CCSprite{
 public:
@@ -31,7 +33,7 @@ private:
 
 <!--more-->
 
-#### 2. shader字符串:
+#### 2. shader字符串
 可以像官方那样写在一个.h文件中
 
 ```
@@ -50,7 +52,7 @@ GLchar* pszFragSource = (GLchar*)
         gl_FragColor = vec4(grey, grey, grey, col.a); \n \
         }";
 ```
-#### 3. 核心代码：
+#### 3. 核心代码
 * 覆盖父类的`initWithTexture`和`draw`方法，根据`m_isGray`调用对应GL程序进行渲染绘制精灵
 
 
@@ -160,3 +162,4 @@ local graySp = CCGraySprite:createWithNodeAndItChild(normalSp)
 local frameSp = CCGraySprite:create("images/frame.png")
 frameSp:setGray(isGray)
 ```
+

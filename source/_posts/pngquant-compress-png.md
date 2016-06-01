@@ -4,6 +4,7 @@ date: 2016-04-30 21:11:28
 tags: pngquant
 categories: 工具
 toc: true
+qrcode: true
 ---
 
 项目包体积越来越大，为了压缩包大小找到一个比较好用的png图片压缩工具，在这记录一下。
@@ -24,7 +25,7 @@ pngquant 可以愉快的玩耍啦！
 
 <!--more-->
 
-### 查看帮助信息：
+### 查看帮助信息
 
 执行 pngquant -h 查看完整选项
 
@@ -53,7 +54,7 @@ pngquant 可以愉快的玩耍啦！
 
 `pngquant $OPTIONS -- "$FILE"`
 
-### 使用示例：
+### 使用示例
 
 压缩Downloads目录下所有的png，并替换当前图片
 

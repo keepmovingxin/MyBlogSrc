@@ -5,6 +5,7 @@ copyright: false
 tag: [Cocos2d-x, Lua, tolua]
 categories: 游戏开发
 toc: true
+qrcode: true
 ---
 
 项目使用Cocos2dx+lua框架做的，用到luabinding实现C++代码绑定到lua层使用，所以学习一下tolua++工具的原理和使用，在这做个记录。

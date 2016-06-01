@@ -1,9 +1,11 @@
 ---
 title: Git Config命令查看配置文件
 date: 2016-04-27 16:31:28
+copyright: false
 tags: Git
 categories: 工具
 toc: true
+qrcode: true
 ---
 
 git config命令的基本使用

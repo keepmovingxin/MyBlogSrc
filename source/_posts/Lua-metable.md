@@ -5,6 +5,7 @@ copyright: false
 tags: Lua
 categories: 游戏开发
 toc: true
+qrcode: true
 ---
 
 参考lua手册，`metatable`是被译作元表，Lua 中的每个值都可以用一个 `metatable`。这个 `metatable` 就是一个原始的 Lua table，它用来定义原始值在特定操作下的行为。
