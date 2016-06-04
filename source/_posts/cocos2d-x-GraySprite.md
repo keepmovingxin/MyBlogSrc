@@ -9,6 +9,7 @@ qrcode: true
 
 #### 1. 实现方法
 `CCGraySprite` 继承自 `CCSprite` 覆盖`initWithTexture`和`draw`方法实现置灰。
+<!--more-->
 
 ##### 方法和属性声明
 ```
@@ -30,8 +31,6 @@ private:
 ```
 * `m_isGray` 是否置灰
 * `pProgram` 保存置灰的GL程序
-
-<!--more-->
 
 #### 2. shader字符串
 可以像官方那样写在一个.h文件中

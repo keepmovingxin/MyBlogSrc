@@ -8,6 +8,8 @@ qrcode: true
 ---
 
 记录一下Cocos2d-x中动态纹理`CCRenderTexture`的各种应用，实现截屏、阴影等等
+<!--more-->
+
 使用`CCRenderTexture`需要做以下5步:
 
 1. 创建一个新的`CCRenderTexture`. 这里，你可以指定将要创建的纹理的宽度和高度。
@@ -15,8 +17,6 @@ qrcode: true
 3. 绘制纹理. 你可以使用原始的`OpenGL`调用来绘图，或者你也可以使用cocos2d对象里面已经定义好的`visit`方法。（这个visit方法就会调用一些opengl命令来绘制cocos2d对象）
 4. 调用 `CCRenderTexture:end`. 这个方法会渲染纹理，并且会关闭渲染至`CCRenderTexture`的通道。
 5. 从生成的纹理中创建一个`sprite`. 你现在可以用`CCRenderTexture`的`sprite.texture`属性来轻松创建新的精灵了。
-
-<!--more-->
 
 ### 截取当前屏幕图片
 ```
