@@ -3,7 +3,7 @@ title: Git 常用命令用法：程序员的场景
 date: 2016-05-20 22:41:28
 copyright: false
 tags: Git
-categories: 工具
+categories: 工具/效率
 toc: true
 qrcode: true
 ---

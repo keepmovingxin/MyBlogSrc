@@ -3,7 +3,7 @@ title: Git Config命令查看配置文件
 date: 2016-04-27 16:31:28
 copyright: false
 tags: Git
-categories: 工具
+categories: 工具/效率
 toc: true
 qrcode: true
 ---

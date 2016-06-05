@@ -2,7 +2,7 @@
 title: Linux常用命令学习
 date: 2016-04-28 16:02:52
 tags: Linux
-categories: 工具
+categories: 工具/效率
 toc: true
 qrcode: true
 ---

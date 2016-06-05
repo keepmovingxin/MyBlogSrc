@@ -2,7 +2,7 @@
 title: 利用pngquant压缩png图片
 date: 2016-04-30 21:11:28
 tags: pngquant
-categories: 工具
+categories: 工具/效率
 toc: true
 qrcode: true
 ---

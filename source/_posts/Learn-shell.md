@@ -2,7 +2,7 @@
 title: shell学习笔记
 date: 2016-05-02 16:50:52
 tags: shell
-categories: 工具
+categories: 工具/效率
 toc: true
 qrcode: true
 ---

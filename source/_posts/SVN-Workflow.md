@@ -3,7 +3,7 @@ title: SVN命令用法：程序员的场景
 date: 2016-05-20 22:31:59
 copyright: false
 tags: SVN
-categories: 工具
+categories: 工具/效率
 toc: true
 qrcode: true
 ---

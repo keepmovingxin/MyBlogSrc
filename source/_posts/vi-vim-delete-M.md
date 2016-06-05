@@ -4,7 +4,7 @@ toc: true
 copyright: false
 date: 2016-04-29 13:39:31
 tags: Vim
-categories: 工具
+categories: 工具/效率
 qrcode: true
 ---
 处理项目xml配置时vim打开经常会碰到中文显示不正常的现象，也就是传说中的乱码，搜索找到一个解决办法，记录一下，但是gbk编码的正常了，utf8的又不对了，于是稍微改了一点。
