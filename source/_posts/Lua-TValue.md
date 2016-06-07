@@ -24,7 +24,7 @@ qrcode: true
 
 ![](/images/luaTValue/lua-tvalue-03.png)
 
-在Value中，void\* p、lua_Number n、int b都是不用回收的值类型，而GCObject* gc则都是需要回收的对象，下面是**GCObject数据结构**:（lstate.h 133-145）
+在Value中，void\* p、lua_Number n、int b都是不用回收的值类型，而GCObject\* gc则都是需要回收的对象，下面是**GCObject数据结构**:（lstate.h 133-145）
 
 ![](/images/luaTValue/lua-tvalue-04.png)
 
