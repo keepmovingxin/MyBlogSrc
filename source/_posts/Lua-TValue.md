@@ -4,11 +4,13 @@ date: 2016-06-05 22:06:28
 copyright: false
 tags: [Lua, Lua数据结构]
 categories: 游戏开发
-toc: true
+toc: false
 qrcode: true
 ---
 
 数据结构的设计，在一定程度上奠定了整个系统的设计，所以决定写一个对Lua主要数据结构的分析文章，本来打算写一篇就好了，但是每个数据类型其实都有点复杂，一篇的话篇幅太长，所以就拆开几篇来写了。
+
+<!--more-->
 
 为什么是从TValue说起，**TValue是实现Lua弱数据类型的主要数据结构**，不但在脚本中的值使用了TValue，连Lua的实现中，很多数据结构也依赖于TValue，TValue一定程度上贯穿了整个Lua。先说一下Lua里面的**数据类型**:（lua.h :69）
 
@@ -22,7 +24,7 @@ qrcode: true
 
 ![](/images/luaTValue/lua-tvalue-03.png)
 
-在Value中，void* p、lua_Number n、int b都是不用回收的值类型，而GCObject* gc则都是需要回收的对象，下面是**GCObject数据结构**:（lstate.h 133-145）
+在Value中，void\* p、lua_Number n、int b都是不用回收的值类型，而GCObject* gc则都是需要回收的对象，下面是**GCObject数据结构**:（lstate.h 133-145）
 
 ![](/images/luaTValue/lua-tvalue-04.png)
 
