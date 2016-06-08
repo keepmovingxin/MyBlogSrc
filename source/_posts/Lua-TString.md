@@ -4,7 +4,7 @@ date: 2016-06-06 21:13:36
 copyright: false
 tags: [Lua, Lua数据结构]
 categories: 游戏开发
-toc: true
+toc: false
 qrcode: true
 ---
 
