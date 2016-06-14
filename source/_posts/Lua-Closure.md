@@ -112,9 +112,9 @@ lua code:
 ![](/images/luaClosure/lua-closure-13.png)
 
 1. CommHeader： UpVal也是可回收的类型，一般有的CommHeader也会有
-2. TValue* v：当函数打开时是指向对应stack位置值，当关闭后则指向自己
+2. TValue\* v：当函数打开时是指向对应stack位置值，当关闭后则指向自己
 3. TValue value：函数关闭后保存的值
-4. UpVal* prev、UpVal* next：用于GC，全局绑定的一条UpVal回收链表
+4. UpVal\* prev、UpVal\* next：用于GC，全局绑定的一条UpVal回收链表
 
 ### 三、 函数原型
 
