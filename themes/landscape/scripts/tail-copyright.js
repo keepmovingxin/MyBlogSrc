@@ -9,8 +9,8 @@ hexo.extend.filter.register('before_post_render', function(data){
     if(file_content && data.content.length > 50) 
     {
         data.content += file_content;
-        var permalink = '\n原文链接：' + data.permalink;
-        data.content += permalink;
+        // var permalink = '\n原文链接：' + data.permalink;
+        // data.content += permalink;
     }
     return data;
 });
