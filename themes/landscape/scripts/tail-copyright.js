@@ -4,7 +4,7 @@
 var fs = require('fs');
 
 hexo.extend.filter.register('before_post_render', function(data){
-    if(data.copyright == false) return data;
+    if(data.copyright == false || data.title.length < 1) return data;
     var file_content = fs.readFileSync('copyright.md');
     if(file_content && data.content.length > 50) 
     {
