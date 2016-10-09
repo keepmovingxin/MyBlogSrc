@@ -290,9 +290,9 @@ MD5全称是报文摘要算法（Message-Digest Algorithm 5），此算法对任
  	-M<目录> 　只在设置的目录下查找说明文件。
  	-s 　只查找原始代码文件。
  	-S<目录> 　只在设置的目录下查找原始代码文件。
- 	-u 　查找不包含指定类型的文件。### Zip 压缩
+ 	-u 　查找不包含指定类型的文件。### zip 压缩
 **功能说明**：文件压缩(打包)。
-**语　　法**：最通俗的用法
+**语　　法**：
 `zip -q -r -e -m -o [yourName].zip someThing`
 **参　　数**：
 
@@ -304,5 +304,74 @@ MD5全称是报文摘要算法（Message-Digest Algorithm 5），此算法对任
 	-o 表示设置所有被压缩文件的最后修改时间为当前压缩时间
 
 当跨目录的时候是这么操作的
-`zip -q -r -e -m -o '\user\someone\someDir\someFile.zip' '\users\someDir'`### 未完待续...
+`zip -q -r -e -m -o '\user\someone\someDir\someFile.zip' '\users\someDir'`### scp 远程拷贝
+**功能说明**：scp是secure copy的缩写, scp是linux系统下基于ssh登陆进行安全的远程文件拷贝命令。linux的scp命令可以在linux服务器之间复制文件和目录。
+**语　　法**：scp [参数] [原路径] [目标路径]**参　　数**：
+
+	-1  强制scp命令使用协议ssh1  
+	-2  强制scp命令使用协议ssh2  
+	-4  强制scp命令只使用IPv4寻址  
+	-6  强制scp命令只使用IPv6寻址  
+	-B  使用批处理模式（传输过程中不询问传输口令或短语）  
+	-C  允许压缩。（将-C标志传递给ssh，从而打开压缩功能）  
+	-p 保留原文件的修改时间，访问时间和访问权限。  
+	-q  不显示传输进度条。  
+	-r  递归复制整个目录。  
+	-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。   
+	-c cipher  以cipher将数据传输进行加密，这个选项将直接传递给ssh。   
+	-F ssh_config  指定一个替代的ssh配置文件，此参数直接传递给ssh。  
+	-i identity_file  从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。    
+	-l limit  限定用户所能使用的带宽，以Kbit/s为单位。     
+	-o ssh_option  如果习惯于使用ssh_config(5)中的参数传递方式，   
+	-P port  注意是大写的P, port是指定数据传输用到的端口号   
+	-S program  指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。
+	
+**实　　例**：
+
+1. 从本地服务器复制到远程服务器： 
+
+(1) 复制文件
+```
+scp local_file remote_username@remote_ip:remote_folder  
+或者  
+scp local_file remote_username@remote_ip:remote_file  
+或者  
+scp local_file remote_ip:remote_folder  
+或者  
+scp local_file remote_ip:remote_file
+```
+第1,2个指定了用户名，命令执行后需要输入用户密码，第1个仅指定了远程的目录，文件名字不变，第2个指定了文件名  
+第3,4个没有指定用户名，命令执行后需要输入用户名和密码，第3个仅指定了远程的目录，文件名字不变，第4个指定了文件名
+
+(2) 复制目录
+```
+scp -r local_folder remote_username@remote_ip:remote_folder  
+或者  
+scp -r local_folder remote_ip:remote_folder
+```
+第1个指定了用户名，命令执行后需要输入用户密码；  
+第2个没有指定用户名，命令执行后需要输入用户名和密码；
+
+2. 从远程服务器复制到本地服务器：
+
+(1) 从远处复制文件到本地目录
+```
+scp root@192.168.120.204:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/
+```
+说明：
+从192.168.120.204机器上的/opt/soft/的目录中下载nginx-0.5.38.tar.gz 文件到本地/opt/soft/目录中
+
+(2) 从远处复制到本地
+```
+scp -r root@192.168.120.204:/opt/soft/mongodb /opt/soft/
+```
+说明：
+从192.168.120.204机器上的/opt/soft/中下载mongodb 目录到本地的/opt/soft/目录来。
+
+(3) 上传本地文件到远程机器指定目录
+```
+scp /opt/soft/nginx-0.5.38.tar.gz root@192.168.120.204:/opt/soft/scptest
+```说明：
+上传本地目录 /opt/soft/mongodb到远程机器192.168.120.204上/opt/soft/scptest的目录中去
+	    ### 未完待续...
 
