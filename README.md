@@ -1,3 +1,3 @@
 # hexoblog
 
-我的hexo blog源码
+Hexo Blog源码
