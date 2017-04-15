@@ -2,8 +2,8 @@
 menu:
   Home: /
   Archives: /archives
-  Cocos: /Cocos
   WordPress: /WordPress
+  Cocos: /Cocos
   About: /about
 rss: /atom.xml
 
