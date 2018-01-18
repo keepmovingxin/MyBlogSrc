@@ -38,3 +38,13 @@ OSX中只有Copy，没有cut，但有移动mv。`Command + C`后，`Command+V+Op
 脚本名应该是`daily`、`weekly`或`monthly`。如果要同时运行三个维护脚本，则可输入：
 
 `sudo periodic daily weekly monthly`
+
+
+#### 11. 修改Launchpad显示图标数量
+
+```
+defaults write com.apple.dock springboard-columns -int 9;
+defaults write com.apple.dock springboard-rows -int 9;
+defaults write com.apple.dock ResetLaunchPad -bool TRUE;
+killall Dock
+```
